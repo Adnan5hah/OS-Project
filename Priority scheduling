@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	int BT[20],TAT[20],WT[20],P_no[20];
+	int AT[20],j,Avg_TAT,Avg_WT,Prior[20],total=0,pos,temp,temp2,temp1;
+	int No_pro;
+	int i;
+	printf("Enter no of process\n");
+	scanf("%d",&No_pro);
+	for(i=0;i<No_pro;i++)
+	{
+		printf("\nProcess %d",i+1,"\n");
+		printf("\nEnter Burst time:");
+		scanf("%d",&BT[i]);
+		printf("Enter Arrival Time:");
+		scanf("%d",&AT[i]);
+		printf("Enter Priority:");
+		scanf("%d",&Prior[i]);
+		P_no[i]=i+1;
+	}
