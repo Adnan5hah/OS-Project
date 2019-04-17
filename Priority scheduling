@@ -19,3 +19,13 @@ int main()
 		scanf("%d",&Prior[i]);
 		P_no[i]=i+1;
 	}
+	for(i=0;i<No_pro;i++)
+	{
+		
+		pos=i;
+		for(j=i+1;j<No_pro;j++)
+		{
+			
+			if(Prior[j]<Prior[pos])
+				pos=j;
+		}
