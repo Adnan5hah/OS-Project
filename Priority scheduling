@@ -52,3 +52,15 @@ int main()
 		total+=WT[i];
 		
 	}
+	Avg_WT=total/No_pro;
+	total=0;
+	printf("_________________________________________________________");
+	printf("\nProcess\t \t    Burst   \t       WT\t     TAT");
+	for(i=0;i<No_pro;i++)
+	{
+		printf("\n",&WT[i],"\n");
+		TAT[i] = WT[i]+BT[i];
+		total+=TAT[i];
+		printf("\nPro no %d \t %6d \t   %6d   \t   %5d",P_no[i],BT[i],WT[i],TAT[i]);
+	}
+	printf("\n_________________________________________________________\n");
