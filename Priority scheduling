@@ -29,3 +29,26 @@ int main()
 			if(Prior[j]<Prior[pos])
 				pos=j;
 		}
+	temp=Prior[i];
+		Prior[i]=Prior[pos];
+		Prior[pos]=temp;
+		temp1=BT[i];
+		BT[i]=BT[pos];
+		BT[pos]=temp1;
+		
+		temp2=P_no[i];
+		P_no[i]=P_no[pos];
+		P_no[pos]=temp2;
+		}
+	
+	WT[0]=0;
+	for(i=0;i<No_pro;i++)
+	{
+		WT[i]=0;
+		for(j=0;j<i;j++){
+		
+			WT[i]+=BT[j];
+		}
+		total+=WT[i];
+		
+	}
