@@ -3,7 +3,8 @@
 int main()
 {
 	int BT[20],TAT[20],WT[20],P_no[20];
-	int AT[20],j,Avg_TAT,Avg_WT,Prior[20],total=0,pos,temp,temp2,temp1;
+	int AT[20],j,Prior[20],pos,temp,temp2,temp1;
+	float Avg_TAT,Avg_WT,total=0;
 	int No_pro;
 	int i;
 	printf("Enter no of process\n");
