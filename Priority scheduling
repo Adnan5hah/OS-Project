@@ -8,8 +8,8 @@ int main()
 	int No_pro;
 	int i;
 	printf("Enter no of process\n");
-	scanf("%d",&No_pro);
-	for(i=0;i<No_pro;i++)
+	scanf("%d",&No_pro); //Number of processes
+	for(i=0;i<No_pro;i++) //enter burst time, arrival time and priority
 	{
 		printf("\nProcess %d",i+1,"\n");
 		printf("\nEnter Burst time:");
@@ -18,9 +18,10 @@ int main()
 		scanf("%d",&AT[i]);
 		printf("Enter Priority:");
 		scanf("%d",&Prior[i]);
-		P_no[i]=i+1;
+		P_no[i]=i+1; //contains process number
 	}
-	for(i=0;i<No_pro;i++)
+	
+	for(i=0;i<No_pro;i++) //sorting burst time, priority and process number in ascending order using selection sort
 	{
 		
 		pos=i;
@@ -30,20 +31,21 @@ int main()
 			if(Prior[j]<Prior[pos])
 				pos=j;
 		}
-	temp=Prior[i];
-	Prior[i]=Prior[pos];
-	Prior[pos]=temp;
-	temp1=BT[i];
-	BT[i]=BT[pos];
-	BT[pos]=temp1;
 		
-	temp2=P_no[i];
-	P_no[i]=P_no[pos];
-	P_no[pos]=temp2;
+		temp=Prior[i]; //swapping variables according to priority
+		Prior[i]=Prior[pos];
+		Prior[pos]=temp;
+		temp1=BT[i];
+		BT[i]=BT[pos];
+		BT[pos]=temp1;
+		
+		temp2=P_no[i];
+		P_no[i]=P_no[pos];
+		P_no[pos]=temp2;
 	}
 	
-	WT[0]=0;
-	for(i=0;i<No_pro;i++)
+	WT[0]=0; //waiting time for first process is zero
+	for(i=0;i<No_pro;i++) //calculating waiting time
 	{
 		WT[i]=0;
 		for(j=0;j<i;j++){
@@ -53,15 +55,24 @@ int main()
 		total+=WT[i];
 		
 	}
-	Avg_WT=total/No_pro;
+	
+	Avg_WT=total/No_pro; //calculating average waiting time
 	total=0;
 	printf("_________________________________________________________");
 	printf("\nProcess\t \t    Burst   \t       WT\t     TAT");
 	for(i=0;i<No_pro;i++)
 	{
 		printf("\n",&WT[i],"\n");
-		TAT[i] = WT[i]+BT[i];
+		TAT[i] = WT[i]+BT[i]; //calculating arrival time
 		total+=TAT[i];
 		printf("\nPro no %d \t %6d \t   %6d   \t   %5d",P_no[i],BT[i],WT[i],TAT[i]);
+//		printf("\nPro no %d \t %d %d %d",P_no[i],"\t ",BT[i],"\t",WT[i],"\t ",TAT[i]);
+		
 	}
 	printf("\n_________________________________________________________\n");
+	Avg_TAT=total/No_pro; //average turn around time
+//	printf("\n");
+	printf("\nAverage TAT is: %.2f",Avg_TAT);
+	printf("\nAverage waiting time is: %.2f",Avg_WT);
+	return 0;
+}
